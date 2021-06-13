@@ -1,6 +1,7 @@
 // bring in express
 const express = require('express');
-const { Pool } = require('pg');
+// bring in pool from pool module
+const pool = require('../modules/pool');
 // bring in router functionality from express
 const router = express.Router()
 
@@ -10,7 +11,7 @@ router.get('/', (req, res) => {
 
     // SQL select statement for the pool query
     const queryText = `SELECT * FROM feedback ORDER BY "date";`;
-    Pool.query(queryText)
+    pool.query(queryText)
 
     // async send result to client
     .then(result => {
