@@ -25,5 +25,31 @@ router.get('/', (req, res) => {
 });
 
 /* ---POST--- */
+router.post('/', (req, res) => {
+
+    // req.body is the object to post to the database
+    const newFeedback = req.body;
+    console.log(`Posting ${newFeedback} to table`);
+
+    // SQL insert statement for the pool query
+    const queryText = `INSERT INTO feedback ("feeling", "understanding", "support", "comments")
+        VALUES ($1, $2, $3, $4);`;
+
+    // run pool query with array of sanitized data
+    pool.query(
+        queryText, 
+        [newFeedback.feeling, newFeedback.understanding, newFeedback.support, newFeedback.comment]
+    )
+
+    // async call sends a result to client
+    .then(result => {
+        res.sendStatus(201);
+    })
+
+    // catch error in post
+    .catch(err => {
+        console.log(`Couldn't post ${newFeedback} to database`, err);
+    });
+})
 
 module.exports = router;
