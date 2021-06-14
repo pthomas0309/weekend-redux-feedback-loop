@@ -4,6 +4,9 @@ import './App.css';
 import Review from '../Review/Review'
 import FeedbackForm from '../FeedbackForm/FeedbackForm'
 
+// bring in router and route functionality
+import {HashRouter as Router, Route} from 'react-router-dom';
+
 function App() {
 
   // getFeedback handles the API 
@@ -32,22 +35,37 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Feedback!</h1>
-        <h4>Don't forget it!</h4>
-      </header>
+    <Router>
+      <div className='App'>
+        <header className='App-header'>
+          <h1 className='App-title'>Feedback!</h1>
+          <h4>Don't forget it!</h4>
+        </header>
 
-      {/* Feedback Form component for each page of inputs */}
-      <FeedbackForm feedbackPage="feeling" />
-      <FeedbackForm feedbackPage="understanding" />
-      <FeedbackForm feedbackPage="support" />
-      <FeedbackForm feedbackPage="comment" />
+        {/* Feedback Form component for each page of inputs */}
+        <Route path='/' exact >
+          <FeedbackForm feedbackPage="feeling" />
+        </Route>
 
-      {/* Component for the feedback review */}
-      <Review />
+        <Route path='/understanding' >
+          <FeedbackForm feedbackPage="understanding" />
+        </Route>
 
-    </div>
+        <Route path='/support' >
+          <FeedbackForm feedbackPage="support" />
+        </Route>
+
+        <Route path='/comment' >
+          <FeedbackForm feedbackPage="comment" />
+        </Route>
+
+        {/* Component for the feedback review */}
+        <Route path='/review' >
+          <Review />
+        </Route>
+
+      </div>
+    </Router>
   );
 }
 
