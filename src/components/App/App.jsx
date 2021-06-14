@@ -64,6 +64,10 @@ function App() {
           <Review />
         </Route>
 
+        <Route path="/success">
+          <Success />
+        </Route>
+
       </div>
     </Router>
   );
