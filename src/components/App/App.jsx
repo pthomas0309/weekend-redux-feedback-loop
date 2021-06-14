@@ -1,14 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import axios from 'axios';
 import './App.css';
 import Review from '../Review/Review'
 
 function App() {
-
-  // on page load run the API call
-  useEffect(() => {
-    getFeedback()
-  },[]);
 
   // getFeedback handles the API 
   // call to the server
