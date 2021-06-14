@@ -20,13 +20,13 @@ const feedbackReducer = (state = {feeling: '', understanding: '', support: '', c
     // object based on action type
     switch(action.type){
         case 'COMMENT' :
-            return {comment: action.payload, ...state};
+            return {...state, comment: action.payload};
         case 'SUPPORT' :
-            return {support: action.payload, ...state};
+            return {...state, support: action.payload};
         case 'UNDERSTANDING' :
-            return {understanding: action.payload, ...state};
+            return {...state, understanding: action.payload};
         case 'FEELING' :
-            return {feeling: action.payload, ...state};
+            return {...state, feeling: action.payload};
         default :
             return state;
     };

@@ -32,22 +32,22 @@ function FeedbackForm() {
             case 'feeling' : 
                 return dispatch({
                 type: 'FEELING',
-                payload: feedback
+                payload: feedback.feeling
             });
             case 'understanding' : 
                 return dispatch({
                 type: 'UNDERSTANDING',
-                payload: feedback
+                payload: feedback.understanding
             });
             case 'support' : 
                 return dispatch({
                 type: 'SUPPORT',
-                payload: feedback
+                payload: feedback.support
             });
             case 'comment' : 
                 return dispatch({
                 type: 'COMMENT',
-                payload: feedback
+                payload: feedback.comment
             });
         }
     }
