@@ -27,6 +27,8 @@ const feedbackReducer = (state = {feeling: '', understanding: '', support: '', c
             return {...state, understanding: action.payload};
         case 'FEELING' :
             return {...state, feeling: action.payload};
+        case 'RESET' : 
+            return {feeling: '', understanding: '', support: '', comment: ''}
         default :
             return state;
     };

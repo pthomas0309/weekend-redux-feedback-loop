@@ -1,8 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import Review from '../Review/Review'
-import FeedbackForm from '../FeedbackForm/FeedbackForm'
+
+// source components
+import Review from '../Review/Review';
+import FeedbackForm from '../FeedbackForm/FeedbackForm';
+import Success from '../Success/Success';
 
 // bring in router and route functionality
 import {HashRouter as Router, Route} from 'react-router-dom';
@@ -62,6 +65,10 @@ function App() {
         {/* Component for the feedback review */}
         <Route path='/review' >
           <Review />
+        </Route>
+
+        <Route path="/success">
+          <Success />
         </Route>
 
       </div>

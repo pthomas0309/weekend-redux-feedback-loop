@@ -1,11 +1,19 @@
-// source useSelector
+// source axios
 import axios from 'axios';
+
+// source useSelector
 import {useSelector} from 'react-redux';
+
+// source useHistory
+import {useHistory} from 'react-router-dom'
 
 function Review() {
 
     // make the store accessible  in the component
     const feedback = useSelector(store => store.feedbackReducer);
+
+    // make useHistory accessiblr by history
+    const history = useHistory();
 
     // submit feedback handles the API call to post
     const submitFeedback = () => {
@@ -22,6 +30,9 @@ function Review() {
         .catch(err => {
             console.log(`There was a problem posting the feedback to database`);
         });
+
+        // navigate to success page on completion
+        history.push('/success');
     };
 
     console.log(feedback);
