@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import Review from '../Review/Review'
+import FeedbackForm from '../FeedbackForm/FeedbackForm'
 
 function App() {
 
@@ -36,6 +37,12 @@ function App() {
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
+
+      {/* Feedback Form component for each page of inputs */}
+      <FeedbackForm feedbackPage="feeling" />
+      <FeedbackForm feedbackPage="understanding" />
+      <FeedbackForm feedbackPage="support" />
+      <FeedbackForm feedbackPage="comment" />
 
       {/* Component for the feedback review */}
       <Review />

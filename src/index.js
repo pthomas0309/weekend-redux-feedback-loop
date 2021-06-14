@@ -14,19 +14,19 @@ import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
 // reducer to hold the feedback data
-const feedbackReducer = (state = {feeling: '5', understanding: '5', support: '5', comment: 'placeholder'}, action) => {
+const feedbackReducer = (state = {feeling: '', understanding: '', support: '', comment: ''}, action) => {
     console.log('feedbackReducer', state);
     // switch operator will build the feedback
     // object based on action type
     switch(action.type){
         case 'COMMENT' :
-            return {comment: action.payload, ...state};
+            return {...state, comment: action.payload};
         case 'SUPPORT' :
-            return {support: action.payload, ...state};
+            return {...state, support: action.payload};
         case 'UNDERSTANDING' :
-            return {understanding: action.payload, ...state};
+            return {...state, understanding: action.payload};
         case 'FEELING' :
-            return {feeling: action.payload, ...state};
+            return {...state, feeling: action.payload};
         default :
             return state;
     };
