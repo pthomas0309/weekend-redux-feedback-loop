@@ -39,10 +39,10 @@ function App() {
       </header>
 
       {/* Feedback Form component for each page of inputs */}
-      <FeedbackForm />
-      <FeedbackForm />
-      <FeedbackForm />
-      <FeedbackForm />
+      <FeedbackForm feedbackPage="feeling" />
+      <FeedbackForm feedbackPage="understanding" />
+      <FeedbackForm feedbackPage="support" />
+      <FeedbackForm feedbackPage="comment" />
 
       {/* Component for the feedback review */}
       <Review />

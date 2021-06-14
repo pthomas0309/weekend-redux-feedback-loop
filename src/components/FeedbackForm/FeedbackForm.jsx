@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 
-function FeedbackForm() {
+function FeedbackForm({feedbackPage}) {
 
     // local state for input values
     const [feedback, setFeedback] = useState({
@@ -10,6 +10,8 @@ function FeedbackForm() {
         support: '',
         comment: ''
     })
+
+    const [whatPage, setWhatPage] = useState(feedbackPage);
 
     const dispatch = useDispatch();
 
@@ -27,7 +29,7 @@ function FeedbackForm() {
         });
     }
 
-    const addToReducer = (action) => {
+    const addToReducer = (action, feedbackPage) => {
         switch (action) {
             case 'feeling' : 
                 return dispatch({
@@ -55,37 +57,50 @@ function FeedbackForm() {
     console.log(feedback);
     return( 
         <>
+            { 'feeling' != whatPage ?
+            <p></p> :
+
             <form>
                 <p>On a scale of 1 - 5, how are you feeling today?</p>
                 <label htmlFor="feeling">
                 <input onChange={(event) => handleChange(event, 'feeling')} id="feeling" type="text" placeholder="How are you feeling?" required />
                 </label>
-                <button onClick={() => addToReducer('feeling')}>NEXT</button>
+                <button onClick={() => addToReducer('feeling', feedbackPage)}>NEXT</button>
             </form>
+            }
 
+            { 'understanding' != whatPage ?
+            <p></p> :
             <form>
                 <p>On a scale of 1 - 5, how well do you understand the content?</p>
                 <label htmlFor="understanding">
                 <input onChange={(event) => handleChange(event, 'understanding')} id="understanding" type="text" placeholder="How is your understanding?" required />
                 </label>
-                <button onClick={() => addToReducer('understanding')}>NEXT</button>
+                <button onClick={() => addToReducer('understanding', feedbackPage)}>NEXT</button>
             </form>
+            }
 
+            { 'support' != whatPage ?
+            <p></p> :
             <form>
                 <p>On a scale of 1 - 5, how supported do you feel?</p>
                 <label htmlFor="support">
                 <input onChange={(event) => handleChange(event, 'support')} id="support" type="text" placeholder="How supported do you feel?" required />
                 </label>
-                <button onClick={() => addToReducer('support')}>NEXT</button>
+                <button onClick={() => addToReducer('support', feedbackPage)}>NEXT</button>
             </form>
+            }
 
+            { 'comment' != whatPage ?
+            <p></p> :   
             <form>
                 <p>Please include any additional comments here if you have any.</p>
                 <label htmlFor="support">
                 <input onChange={(event) => handleChange(event, 'comment')} id="support" type="text" placeholder="How supported do you feel?" required />
                 </label>
-                <button onClick={() => addToReducer('comment')}>NEXT</button>
+                <button onClick={() => addToReducer('comment', feedbackPage)}>NEXT</button>
             </form>
+            }
         </>
     )
 }
