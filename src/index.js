@@ -15,7 +15,7 @@ import logger from 'redux-logger'
 
 // reducer to hold the feedback data
 const feedbackReducer = (state = {}, action) => {
-
+    console.log('feedbackReducer')
     // switch operator will build the feedback
     // object based on action type
     switch(action.type){
@@ -32,5 +32,15 @@ const feedbackReducer = (state = {}, action) => {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore(
+    combineReducers({feedbackReducer}), 
+    applyMiddleware(logger)
+)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, 
+    document.getElementById('root')
+);
 registerServiceWorker();
