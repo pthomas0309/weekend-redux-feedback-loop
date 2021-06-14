@@ -11,11 +11,11 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 
 // import logger
-import logger from 'redux-logger'
+import logger from 'redux-logger';
 
 // reducer to hold the feedback data
 const feedbackReducer = (state = {}, action) => {
-    console.log('feedbackReducer')
+    console.log('feedbackReducer');
     // switch operator will build the feedback
     // object based on action type
     switch(action.type){
@@ -29,13 +29,13 @@ const feedbackReducer = (state = {}, action) => {
             return {feeling: action.payload, ...state};
         default :
             return state;
-    }
-}
+    };
+};
 
 const store = createStore(
     combineReducers({feedbackReducer}), 
     applyMiddleware(logger)
-)
+);
 
 ReactDOM.render(
     <Provider store={store}>
