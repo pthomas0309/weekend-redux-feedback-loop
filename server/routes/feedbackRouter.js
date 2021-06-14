@@ -29,7 +29,8 @@ router.post('/', (req, res) => {
 
     // req.body is the object to post to the database
     const newFeedback = req.body;
-    console.log(`Posting ${newFeedback} to table`);
+    console.log(req.body);
+    console.log(`Posting`, newFeedback,`to table`);
 
     // SQL insert statement for the pool query
     const queryText = `INSERT INTO feedback ("feeling", "understanding", "support", "comments")
@@ -48,7 +49,7 @@ router.post('/', (req, res) => {
 
     // catch error in post
     .catch(err => {
-        console.log(`Couldn't post ${newFeedback} to database`, err);
+        console.log(`Couldn't post`, newFeedback,`to database`, err);
     });
 })
 
