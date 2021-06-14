@@ -88,7 +88,7 @@ function FeedbackForm({feedbackPage}) {
             <form>
                 <p>On a scale of 1 - 5, how are you feeling today?</p>
                 <label htmlFor="feeling">
-                <input onChange={(event) => handleChange(event, 'feeling')} id="feeling" type="text" placeholder="How are you feeling?" required />
+                <input onChange={(event) => handleChange(event, 'feeling')} id="feeling" type="number" placeholder="How are you feeling?" required />
                 </label>
                 <button onClick={(event) => { addToReducer('feeling'); navigateNext(event);}}>NEXT</button>
             </form>
@@ -99,7 +99,7 @@ function FeedbackForm({feedbackPage}) {
             <form>
                 <p>On a scale of 1 - 5, how well do you understand the content?</p>
                 <label htmlFor="understanding">
-                <input onChange={(event) => handleChange(event, 'understanding')} id="understanding" type="text" placeholder="How is your understanding?" required />
+                <input onChange={(event) => handleChange(event, 'understanding')} id="understanding" type="number" placeholder="How is your understanding?" required />
                 </label>
                 <button onClick={(event) => { addToReducer('understanding'); navigateNext(event);}}>NEXT</button>
             </form>
@@ -110,7 +110,7 @@ function FeedbackForm({feedbackPage}) {
             <form>
                 <p>On a scale of 1 - 5, how supported do you feel?</p>
                 <label htmlFor="support">
-                <input onChange={(event) => handleChange(event, 'support')} id="support" type="text" placeholder="How supported do you feel?" required />
+                <input onChange={(event) => handleChange(event, 'support')} id="support" type="number" placeholder="How supported do you feel?" required />
                 </label>
                 <button onClick={(event) => { addToReducer('support'); navigateNext(event);}}>NEXT</button>
             </form>
