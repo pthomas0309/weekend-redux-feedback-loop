@@ -29,7 +29,7 @@ function FeedbackForm({feedbackPage}) {
         });
     }
 
-    const addToReducer = (action, feedbackPage) => {
+    const addToReducer = (action) => {
         switch (action) {
             case 'feeling' : 
                 return dispatch({
